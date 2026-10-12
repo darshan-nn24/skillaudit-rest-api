@@ -1,0 +1,19 @@
+{
+  "info": {
+    "name": "SkillAudit - Task Management REST API",
+    "description": "Postman collection for the SkillAudit internship CRUD REST API task.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "baseUrl", "value": "http://127.0.0.1:8000"},
+    {"key": "taskId", "value": "1"}
+  ],
+  "item": [
+    {"name":"Create Task","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"title\": \"Complete SkillAudit internship task\",\n  \"description\": \"Build and test a CRUD REST API\",\n  \"status\": \"in-progress\",\n  \"priority\": \"high\"\n}"},"url":"{{baseUrl}}/tasks"}},
+    {"name":"Get All Tasks","request":{"method":"GET","url":"{{baseUrl}}/tasks"}},
+    {"name":"Get Task by ID","request":{"method":"GET","url":"{{baseUrl}}/tasks/{{taskId}}"}},
+    {"name":"Update Task","request":{"method":"PUT","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"title\": \"Complete SkillAudit API task\",\n  \"description\": \"CRUD API tested successfully\",\n  \"status\": \"completed\",\n  \"priority\": \"high\"\n}"},"url":"{{baseUrl}}/tasks/{{taskId}}"}},
+    {"name":"Delete Task","request":{"method":"DELETE","url":"{{baseUrl}}/tasks/{{taskId}}"}},
+    {"name":"Get Deleted Task - 404 Test","request":{"method":"GET","url":"{{baseUrl}}/tasks/{{taskId}}"}}
+  ]
+}
